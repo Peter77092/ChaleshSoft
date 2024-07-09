@@ -1,0 +1,109 @@
+import type { Config } from "tailwindcss";
+const { nextui } = require("@nextui-org/theme");
+
+const config = {
+  darkMode: ["class"],
+  content: [
+    "./pages/**/*.{jsx,js,ts,tsx}",
+    "./components/**/*.{jsx,js,ts,tsx}",
+    "./app/**/*.{jsx,js,ts,tsx}",
+    "./src/**/*.{jsx,js,ts,tsx}",
+    "./@/**/*.{jsx,js,ts,tsx}",
+    "./node_modules/@nextui-org/theme/dist/components/(button|pagination).js",
+  ],
+  prefix: "",
+  theme: {
+    container: {
+      center: true,
+      padding: "2rem",
+      screens: {
+        "2xl": "1400px",
+      },
+    },
+    extend: {
+      colors: {
+        border: "hsl(var(--border))",
+        input: "hsl(var(--input))",
+        ring: "hsl(var(--ring))",
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
+        primary: {
+          DEFAULT: "hsl(var(--primary))",
+          foreground: "hsl(var(--primary-foreground))",
+        },
+        secondary: {
+          DEFAULT: "hsl(var(--secondary))",
+          foreground: "hsl(var(--secondary-foreground))",
+        },
+        destructive: {
+          DEFAULT: "hsl(var(--destructive))",
+          foreground: "hsl(var(--destructive-foreground))",
+        },
+        muted: {
+          DEFAULT: "hsl(var(--muted))",
+          foreground: "hsl(var(--muted-foreground))",
+        },
+        accent: {
+          DEFAULT: "hsl(var(--accent))",
+          foreground: "hsl(var(--accent-foreground))",
+        },
+        popover: {
+          DEFAULT: "hsl(var(--popover))",
+          foreground: "hsl(var(--popover-foreground))",
+        },
+        card: {
+          DEFAULT: "hsl(var(--card))",
+          foreground: "hsl(var(--card-foreground))",
+        },
+      },
+      borderRadius: {
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
+        sm: "calc(var(--radius) - 4px)",
+      },
+      keyframes: {
+        "accordion-down": {
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
+        },
+        "accordion-up": {
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
+        },
+        "infinite-scroll-fa": {
+          from: { transform: "translateX(0%)" },
+          to: { transform: "translateX(100%)" },
+        },
+        "infinite-scroll-en": {
+          from: { transform: "translateX(0%)" },
+          to: { transform: "translateX(-100%)" },
+        },
+      },
+      animation: {
+        "infinite-scroll-fa": "infinite-scroll-fa 25s linear infinite",
+        "infinite-scroll-en": "infinite-scroll-en 25s linear infinite",
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
+      },
+    },
+    screens: {
+      sm: "640px",
+      // => @media (min-width: 640px) { ... }
+
+      md: "768px",
+      // => @media (min-width: 768px) { ... }
+
+      lg: "1024px",
+      // => @media (min-width: 1024px) { ... }
+
+      xl: "1280px",
+      // => @media (min-width: 1280px) { ... }
+
+      "2xl": "1536px",
+      // => @media (min-width: 1536px) { ... }
+    },
+  },
+  plugins: [require("tailwindcss-animate"), nextui()],
+} satisfies Config;
+
+export default config;
